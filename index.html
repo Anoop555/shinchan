@@ -1,0 +1,818 @@
+# index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shinchan Universe Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff4cb;
+      overflow-x: hidden;
+      color: #222;
+    }
+
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: #ff3d3d;
+      border-radius: 20px;
+    }
+
+    header {
+      width: 100%;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.5)),
+        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    nav {
+      width: 100%;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .logo span {
+      color: #ffd500;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+      color: #ffe600;
+    }
+
+    .hero {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 120px 8% 40px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .hero-text h1 {
+      font-size: 5rem;
+      line-height: 1.1;
+      color: white;
+      margin-bottom: 25px;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero-text h1 span {
+      color: #ffe600;
+    }
+
+    .hero-text p {
+      color: #f4f4f4;
+      max-width: 650px;
+      line-height: 1.9;
+      font-size: 1.08rem;
+      margin-bottom: 35px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 34px;
+      border-radius: 50px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.4s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg,#ff0000,#ff7b00);
+      color: white;
+      box-shadow: 0 10px 30px rgba(255,0,0,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px) scale(1.04);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #111;
+    }
+
+    .hero-card {
+      width: 430px;
+      min-height: 520px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 35px;
+      backdrop-filter: blur(20px);
+      padding: 30px;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+      animation: float 5s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 25px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 5px solid rgba(255,255,255,0.3);
+    }
+
+    .hero-card h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      color: #f1f1f1;
+      line-height: 1.7;
+    }
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title h2 {
+      font-size: 3.3rem;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #555;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .characters {
+      background: linear-gradient(180deg,#fff4cb,#fffdf2);
+    }
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 35px;
+    }
+
+    .character-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+      transition: 0.4s;
+      position: relative;
+    }
+
+    .character-card:hover {
+      transform: translateY(-12px);
+    }
+
+    .character-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .character-content {
+      padding: 25px;
+    }
+
+    .character-content h3 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .character-content p {
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .products {
+      background: linear-gradient(135deg,#ffea9d,#ffdede);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 35px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      transition: 0.4s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 25px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      color: #ff3131;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+
+    .buy-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(135deg,#ff0000,#ff7700);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .banner {
+      background:
+      linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1522199710521-72d69614c702?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      border-radius: 40px;
+      padding: 100px 40px;
+      margin-top: 60px;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+    }
+
+    .banner h2 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .banner p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .newsletter {
+      background: white;
+    }
+
+    .newsletter-box {
+      max-width: 1000px;
+      margin: auto;
+      background: linear-gradient(135deg,#ff3131,#ff8c00);
+      padding: 60px;
+      border-radius: 35px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .newsletter-box h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input {
+      width: 60%;
+      min-width: 250px;
+      padding: 18px;
+      border-radius: 50px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      padding: 18px 35px;
+      border-radius: 50px;
+      border: none;
+      background: #111;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 70px 8% 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 40px;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 20px;
+      color: #ffe600;
+    }
+
+    .footer-col p,
+    .footer-col li {
+      color: #ccc;
+      line-height: 1.9;
+      list-style: none;
+    }
+
+    .footer-col ul li:hover {
+      color: white;
+      cursor: pointer;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 25px;
+      color: #aaa;
+    }
+
+    .floating-icons {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .bubble {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      animation: move 12s linear infinite;
+    }
+
+    @keyframes move {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(-120vh) rotate(360deg);
+      }
+    }
+
+    .bubble:nth-child(1){left:10%;animation-duration:14s;width:80px;height:80px;}
+    .bubble:nth-child(2){left:30%;animation-duration:18s;width:120px;height:120px;}
+    .bubble:nth-child(3){left:50%;animation-duration:11s;width:70px;height:70px;}
+    .bubble:nth-child(4){left:70%;animation-duration:16s;width:90px;height:90px;}
+    .bubble:nth-child(5){left:90%;animation-duration:20s;width:110px;height:110px;}
+
+    @media(max-width: 1000px) {
+      .hero {
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+      }
+
+      .banner h2 {
+        font-size: 2.7rem;
+      }
+    }
+
+    @media(max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+      }
+
+      .newsletter-box {
+        padding: 40px 20px;
+      }
+
+      .newsletter-box h2 {
+        font-size: 2rem;
+      }
+
+      .hero-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="floating-icons">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+
+    <nav>
+      <div class="logo">Shin<span>Store</span></div>
+
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#characters">Characters</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero" id="home">
+
+      <div class="hero-text">
+        <h1>Enter The <span>Shinchan</span> Universe</h1>
+
+        <p>
+          Welcome to the ultimate Shinchan merchandise destination featuring all your favorite characters including Shinchan, Himawari, Kazama, Nene, Bo Chan, Masao, Misae, Hiroshi and Shiro. Explore premium hoodies, action figures, anime posters, collectibles and lifestyle products designed with high-definition anime aesthetics.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#products" class="btn btn-primary">Explore Collection</a>
+          <a href="#characters" class="btn btn-secondary">Meet Characters</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2070&auto=format&fit=crop" alt="anime store">
+
+        <h2>Anime Merch Paradise</h2>
+
+        <p>
+          Dynamic premium UI specially crafted for NGINX deployment with smooth animations, ultra-modern sections, responsive layouts and vibrant anime inspired aesthetics.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section class="characters" id="characters">
+
+    <div class="section-title">
+      <h2>Main Characters</h2>
+      <p>
+        Discover the iconic Shinchan family and friends with colorful interactive cards inspired by anime merchandise aesthetics.
+      </p>
+    </div>
+
+    <div class="character-grid">
+
+      <div class="character-card">
+        <img src="https://images.unsplash.com/photo-1541560052-77ec1bbc09f7?q=80&w=1887&auto=format&fit=crop" alt="Shinchan">
+
+        <div class="character-content">
+          <h3>Shinchan</h3>
+          <p>
+            Mischievous, hilarious and iconic. The face of the legendary anime universe.
+          </p>
+        </div>
+      </div>
+
+      <div class="character-card">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1887&auto=format&fit=crop" alt="Kazama">
+
+        <div class="character-content">
+          <h3>Kazama</h3>
+          <p>
+            Stylish, smart and always trying to stay sophisticated among the chaos.
+          </p>
+        </div>
+      </div>
+
+      <div class="character-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=2070&auto=format&fit=crop" alt="Nene">
+
+        <div class="character-content">
+          <h3>Nene</h3>
+          <p>
+            Cute but dangerous when angry. Loved for her dramatic personality.
+          </p>
+        </div>
+      </div>
+
+      <div class="character-card">
+        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1887&auto=format&fit=crop" alt="Bochan">
+
+        <div class="character-content">
+          <h3>Bo Chan</h3>
+          <p>
+            Silent, adorable and unforgettable with his calm and lovable nature.
+          </p>
+        </div>
+      </div>
+
+      <div class="character-card">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1887&auto=format&fit=crop" alt="Masao">
+
+        <div class="character-content">
+          <h3>Masao</h3>
+          <p>
+            Sensitive, emotional and one of Shinchan's funniest friends.
+          </p>
+        </div>
+      </div>
+
+      <div class="character-card">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1887&auto=format&fit=crop" alt="Family">
+
+        <div class="character-content">
+          <h3>Nohara Family</h3>
+          <p>
+            Featuring Misae, Hiroshi, Himawari and Shiro — the legendary Shinchan household.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="products" id="products">
+
+    <div class="section-title">
+      <h2>Popular Merchandise</h2>
+      <p>
+        Premium anime inspired collectibles and stylish Shinchan themed fashion products.
+      </p>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1887&auto=format&fit=crop" alt="hoodie">
+
+        <div class="product-info">
+          <h3>Shinchan Premium Hoodie</h3>
+          <p>Ultra-soft oversized anime streetwear edition.</p>
+          <div class="price">₹2,499</div>
+          <button class="buy-btn">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="shoes">
+
+        <div class="product-info">
+          <h3>Action Hero Sneakers</h3>
+          <p>Inspired by Shinchan's superhero obsession.</p>
+          <div class="price">₹4,999</div>
+          <button class="buy-btn">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=2070&auto=format&fit=crop" alt="figure">
+
+        <div class="product-info">
+          <h3>Anime Collectible Figure</h3>
+          <p>Luxury high-definition collectible display piece.</p>
+          <div class="price">₹3,299</div>
+          <button class="buy-btn">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=2070&auto=format&fit=crop" alt="poster">
+
+        <div class="product-info">
+          <h3>Shinchan Poster Set</h3>
+          <p>4K anime wall posters for gaming and bedroom setups.</p>
+          <div class="price">₹999</div>
+          <button class="buy-btn">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1974&auto=format&fit=crop" alt="bag">
+
+        <div class="product-info">
+          <h3>Nene Fashion Backpack</h3>
+          <p>Stylish anime backpack with vibrant premium aesthetics.</p>
+          <div class="price">₹1,899</div>
+          <button class="buy-btn">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1887&auto=format&fit=crop" alt="cap">
+
+        <div class="product-info">
+          <h3>Shiro Signature Cap</h3>
+          <p>Minimal anime street fashion accessory collection.</p>
+          <div class="price">₹799</div>
+          <button class="buy-btn">Add To Cart</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="banner" id="offers">
+      <h2>Flat 50% OFF Anime Festival</h2>
+      <p>
+        Grab exclusive Shinchan themed products with lightning deals, combo offers and limited edition collectibles.
+      </p>
+
+      <a href="#products" class="btn btn-primary">Shop Now</a>
+    </div>
+
+  </section>
+
+  <section class="newsletter" id="contact">
+
+    <div class="newsletter-box">
+      <h2>Join The Shinchan Fan Club</h2>
+
+      <p>
+        Get updates about latest drops, exclusive anime collections and special merchandise offers directly in your inbox.
+      </p>
+
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address">
+        <button>Subscribe</button>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <h3>About Store</h3>
+        <p>
+          Premium Shinchan merchandise store designed with immersive anime inspired visuals and modern shopping experience.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li>Home</li>
+          <li>Collections</li>
+          <li>Characters</li>
+          <li>Offers</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Top Characters</h3>
+        <ul>
+          <li>Shinchan</li>
+          <li>Kazama</li>
+          <li>Nene</li>
+          <li>Bo Chan</li>
+          <li>Masao</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul>
+          <li>Email: shinstore@animeworld.com</li>
+          <li>Phone: +91 99999 99999</li>
+          <li>Open: 24/7 Anime Store</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 ShinStore Anime Merchandise. Crafted for NGINX Deployment.
+    </div>
+
+  </footer>
+
+</body>
+</html>
+```
+
